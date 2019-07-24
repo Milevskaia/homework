@@ -1,0 +1,42 @@
+
+
+{% extends "index.html" %}
+
+{% block content %}
+
+
+
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Owner phone</th>
+                <th scope="col">Owner birthday</th>
+                <th scope="col">Cars</th>
+            </tr>
+        </thead>
+        <tr>
+        {% for owner in owners %}
+
+            <td> {{owner.owner_phone }} </td>
+            <td> {{owner.owner_birthday}} </td>
+            <td>
+                <ul>
+                    {% for car in owner.orm_cars %}
+                    <li>{{car.car_number}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
+
+
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+ </div>
+
+
+{% endblock %}
